@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4dc38b-b514-440a-97e3-6b69875ca9b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bfs/bfs.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bfs/bfs_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/greedyAlghos/shedule.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/greedyAlghos/shedule_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +50,7 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/home/v1tbrah/go/src/alghoritms",
+    "last_opened_file_path": "/home/v1tbrah/go/src/metricsAndAlerting",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,58 +59,77 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bfs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/main" />
       <recent name="$PROJECT_DIR$/sort" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestStrStr/mississippi_-&gt;_issip in alghoritms/leetcode/implement-strstr">
-    <configuration name="go build alghoritms" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.Test_makeShedule in alghoritms/greedyAlghos">
+    <configuration name="TestBFS/Have_friend in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/bfs" />
       <kind value="PACKAGE" />
-      <package value="alghoritms" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build alghoritms/main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="alghoritms/main" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestStrStr in alghoritms/leetcode/implement-strstr" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/leetcode/implement-strstr" />
-      <kind value="PACKAGE" />
-      <package value="alghoritms/leetcode/implement-strstr" />
+      <package value="alghoritms/bfs" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestStrStr\E$" />
+      <pattern value="^\QTestBFS\E$/^\QHave_friend\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestStrStr/mississippi_-&gt;_issip in alghoritms/leetcode/implement-strstr" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_makeShedule in alghoritms/greedyAlghos" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/leetcode/implement-strstr" />
+      <working_directory value="$PROJECT_DIR$/greedyAlghos" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/leetcode/implement-strstr" />
+      <package value="alghoritms/greedyAlghos" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestStrStr\E$/^\Qmississippi_-&gt;_issip\E$" />
+      <pattern value="^\QTest_makeShedule\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_makeShedule/Test_#1 in alghoritms/greedyAlghos" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="alghoritms" />
+      <working_directory value="$PROJECT_DIR$/greedyAlghos" />
+      <kind value="PACKAGE" />
+      <package value="alghoritms/greedyAlghos" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_makeShedule\E$/^\QTest_#1\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_mySqrt in alghoritms/leetcode/sqrtx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="alghoritms" />
+      <working_directory value="$PROJECT_DIR$/leetcode/sqrtx" />
+      <kind value="PACKAGE" />
+      <package value="alghoritms/leetcode/sqrtx" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_mySqrt\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_mySqrt/Test_1#01 in alghoritms/leetcode/sqrtx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="alghoritms" />
+      <working_directory value="$PROJECT_DIR$/leetcode/sqrtx" />
+      <kind value="PACKAGE" />
+      <package value="alghoritms/leetcode/sqrtx" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_mySqrt\E$/^\QTest_1#01\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestStrStr/mississippi_-&gt;_issip in alghoritms/leetcode/implement-strstr" />
-        <item itemvalue="Go Test.TestStrStr in alghoritms/leetcode/implement-strstr" />
-        <item itemvalue="Go Build.go build alghoritms/main" />
-        <item itemvalue="Go Build.go build alghoritms" />
+        <item itemvalue="Go Test.Test_makeShedule in alghoritms/greedyAlghos" />
+        <item itemvalue="Go Test.Test_makeShedule/Test_#1 in alghoritms/greedyAlghos" />
+        <item itemvalue="Go Test.Test_mySqrt in alghoritms/leetcode/sqrtx" />
+        <item itemvalue="Go Test.Test_mySqrt/Test_1#01 in alghoritms/leetcode/sqrtx" />
+        <item itemvalue="Go Test.TestBFS/Have_friend in alghoritms/bfs" />
       </list>
     </recent_temporary>
   </component>
