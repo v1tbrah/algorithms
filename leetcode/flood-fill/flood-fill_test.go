@@ -58,11 +58,6 @@ func Test_floodFill(t *testing.T) {
 			want: [][]int{{0, 0, 0}, {0, 2, 0}},
 		},
 		{
-			// 0, 1, 0   --->
-			// 0, 0, 1
-
-			// 1, 1, 0
-			// 1, 1, 1
 			name: "Test 5",
 			args: args{
 				image: [][]int{{0, 1, 0}, {0, 0, 1}},

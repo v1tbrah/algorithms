@@ -1,11 +1,11 @@
-package bfs
+package dfs
 
 import "testing"
 
-func TestBFS(t *testing.T) {
+func TestDFS(t *testing.T) {
 	type args struct {
 		graph     map[string][]string
-		head      string
+		currNode  string
 		isDesired func(tested string) bool
 	}
 	tests := []struct {
@@ -25,7 +25,7 @@ func TestBFS(t *testing.T) {
 					graph["d"] = []string{"e"}
 					return graph
 				}(),
-				head: "s",
+				currNode: "s",
 				isDesired: func(verifiable string) bool {
 					return verifiable == "t"
 				},
@@ -44,7 +44,7 @@ func TestBFS(t *testing.T) {
 					graph["d"] = []string{"e", "t"}
 					return graph
 				}(),
-				head: "s",
+				currNode: "s",
 				isDesired: func(verifiable string) bool {
 					return verifiable == "t"
 				},
@@ -54,7 +54,7 @@ func TestBFS(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := BFS(tt.args.graph, tt.args.head, tt.args.isDesired); got != tt.want {
+			if got := DFS(tt.args.graph, map[string]struct{}{}, tt.args.currNode, tt.args.isDesired); got != tt.want {
 				t.Errorf("BFS() = %v, want %v", got, tt.want)
 			}
 		})

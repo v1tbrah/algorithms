@@ -1,17 +1,30 @@
 package bfs
 
-type graph map[string][]string
+func BFS(graph map[string][]string, head string, isDesired func(tested string) bool) bool {
+	if isDesired(head) {
+		return true
+	}
+	searched := map[string]struct{}{head: {}}
 
-func BFS(friends graph, isDesired func(verifiable string) bool) bool {
-	searchQueue := []string{}
-	searchQueue = append(searchQueue, friends["Vitya"]...)
-	searched := []string{}
+	searchQueue := make([]string, 0)
+	searchQueue = append(searchQueue, graph[head]...)
+
 	for len(searchQueue) > 0 {
-		if isDesired(searchQueue[0]) {
+		currNode := searchQueue[0]
+		if isDesired(currNode) {
 			return true
-		} else {
-			searched = append(searched, searchQueue[0])
-			searchQueue = append(searchQueue[1:], friends[searchQueue[0]]...)
+		}
+
+		// shift first element in searchQueue
+		searchQueue = searchQueue[1:]
+
+		searched[currNode] = struct{}{}
+
+		for _, node := range graph[currNode] {
+			if _, isSearched := searched[node]; isSearched {
+				continue
+			}
+			searchQueue = append(searchQueue, node)
 		}
 	}
 	return false

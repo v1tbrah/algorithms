@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4dc38b-b514-440a-97e3-6b69875ca9b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/greedyAlghos/shedule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/greedyAlghos/shedule_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dfs/dfs.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dfs/dfs_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bfs/bfs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bfs/bfs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bfs/bfs_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/bfs/bfs_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/flood-fill/coverage.out" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/flood-fill/coverage.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/flood-fill/flood-fill_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/flood-fill/flood-fill_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,37 +42,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/home/v1tbrah/go/src/metricsAndAlerting",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/v1tbrah/go/src/metricsAndAlerting&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bfs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/main" />
       <recent name="$PROJECT_DIR$/sort" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.Test_makeShedule in alghoritms/greedyAlghos">
-    <configuration name="TestBFS/Have_friend in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestDFS in alghoritms/dfs">
+    <configuration name="TestBFS in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
       <working_directory value="$PROJECT_DIR$/bfs" />
       <kind value="PACKAGE" />
@@ -76,60 +81,60 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBFS\E$/^\QHave_friend\E$" />
+      <pattern value="^\QTestBFS\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_makeShedule in alghoritms/greedyAlghos" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBFS2 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/greedyAlghos" />
+      <working_directory value="$PROJECT_DIR$/bfs" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/greedyAlghos" />
+      <package value="alghoritms/bfs" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_makeShedule\E$" />
+      <pattern value="^\QTestBFS2\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_makeShedule/Test_#1 in alghoritms/greedyAlghos" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBFS2/Test_1 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/greedyAlghos" />
+      <working_directory value="$PROJECT_DIR$/bfs" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/greedyAlghos" />
+      <package value="alghoritms/bfs" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_makeShedule\E$/^\QTest_#1\E$" />
+      <pattern value="^\QTestBFS2\E$/^\QTest_1\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_mySqrt in alghoritms/leetcode/sqrtx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBFS/Test_1#01 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/leetcode/sqrtx" />
+      <working_directory value="$PROJECT_DIR$/bfs" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/leetcode/sqrtx" />
+      <package value="alghoritms/bfs" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_mySqrt\E$" />
+      <pattern value="^\QTestBFS\E$/^\QTest_1#01\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_mySqrt/Test_1#01 in alghoritms/leetcode/sqrtx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDFS in alghoritms/dfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/leetcode/sqrtx" />
+      <working_directory value="$PROJECT_DIR$/dfs" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/leetcode/sqrtx" />
+      <package value="alghoritms/dfs" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_mySqrt\E$/^\QTest_1#01\E$" />
+      <pattern value="^\QTestDFS\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_makeShedule in alghoritms/greedyAlghos" />
-        <item itemvalue="Go Test.Test_makeShedule/Test_#1 in alghoritms/greedyAlghos" />
-        <item itemvalue="Go Test.Test_mySqrt in alghoritms/leetcode/sqrtx" />
-        <item itemvalue="Go Test.Test_mySqrt/Test_1#01 in alghoritms/leetcode/sqrtx" />
-        <item itemvalue="Go Test.TestBFS/Have_friend in alghoritms/bfs" />
+        <item itemvalue="Go Test.TestDFS in alghoritms/dfs" />
+        <item itemvalue="Go Test.TestBFS in alghoritms/bfs" />
+        <item itemvalue="Go Test.TestBFS/Test_1#01 in alghoritms/bfs" />
+        <item itemvalue="Go Test.TestBFS2/Test_1 in alghoritms/bfs" />
+        <item itemvalue="Go Test.TestBFS2 in alghoritms/bfs" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +147,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
