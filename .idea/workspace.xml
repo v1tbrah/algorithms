@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4dc38b-b514-440a-97e3-6b69875ca9b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dfs/dfs.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dfs/dfs_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/permutation/permutation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/permutation/permutation_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bfs/bfs.go" beforeDir="false" afterPath="$PROJECT_DIR$/bfs/bfs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bfs/bfs_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/bfs/bfs_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/flood-fill/coverage.out" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/flood-fill/coverage.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/flood-fill/flood-fill_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/flood-fill/flood-fill_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,69 +68,68 @@
       <recent name="$PROJECT_DIR$/sort" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestDFS in alghoritms/dfs">
-    <configuration name="TestBFS in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.go test alghoritms/permutation">
+    <configuration name="Test_fillPermutations in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/bfs" />
+      <working_directory value="$PROJECT_DIR$/permutation" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/bfs" />
+      <package value="alghoritms/permutation" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBFS\E$" />
+      <pattern value="^\QTest_fillPermutations\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestBFS2 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_fillPermutations/Test_1 in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/bfs" />
+      <working_directory value="$PROJECT_DIR$/permutation" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/bfs" />
+      <package value="alghoritms/permutation" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBFS2\E$" />
+      <pattern value="^\QTest_fillPermutations\E$/^\QTest_1\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestBFS2/Test_1 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_permutation in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/bfs" />
+      <working_directory value="$PROJECT_DIR$/permutation" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/bfs" />
+      <package value="alghoritms/permutation" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBFS2\E$/^\QTest_1\E$" />
+      <pattern value="^\QTest_permutation\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestBFS/Test_1#01 in alghoritms/bfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_permutation/Test_1 in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/bfs" />
+      <working_directory value="$PROJECT_DIR$/permutation" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/bfs" />
+      <package value="alghoritms/permutation" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBFS\E$/^\QTest_1#01\E$" />
+      <pattern value="^\QTest_permutation\E$/^\QTest_1\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestDFS in alghoritms/dfs" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go test alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/dfs" />
+      <working_directory value="$PROJECT_DIR$/permutation" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/dfs" />
+      <package value="alghoritms/permutation" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestDFS\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestDFS in alghoritms/dfs" />
-        <item itemvalue="Go Test.TestBFS in alghoritms/bfs" />
-        <item itemvalue="Go Test.TestBFS/Test_1#01 in alghoritms/bfs" />
-        <item itemvalue="Go Test.TestBFS2/Test_1 in alghoritms/bfs" />
-        <item itemvalue="Go Test.TestBFS2 in alghoritms/bfs" />
+        <item itemvalue="Go Test.go test alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_fillPermutations in alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_fillPermutations/Test_1 in alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_permutation in alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_permutation/Test_1 in alghoritms/permutation" />
       </list>
     </recent_temporary>
   </component>
@@ -175,5 +170,12 @@
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoTestRunConfiguration">
+        <watch expression="string(s)" language="go" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
