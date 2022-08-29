@@ -1,15 +1,15 @@
 package sort
 
-func Qsort(input []int) []int {
+func quickSort(input []int) {
 	lenInput := len(input)
 	if lenInput < 2 {
-		return input
+		return
 	}
 	if lenInput == 2 {
 		if input[0] > input[1] {
 			input[0], input[1] = input[1], input[0]
 		}
-		return input
+		return
 	}
 	idxSupEl := lenInput / 2
 	supEl := input[idxSupEl]
@@ -25,14 +25,14 @@ func Qsort(input []int) []int {
 			big = append(big, v)
 		}
 	}
-	sortedSmall := Qsort(small)
-	sortedBig := Qsort(big)
-	for i := 0; i < len(sortedSmall); i++ {
-		input[i] = sortedSmall[i]
+	quickSort(small)
+	quickSort(big)
+	for i := 0; i < len(small); i++ {
+		input[i] = small[i]
 	}
-	input[len(sortedSmall)] = supEl
-	for i := 0; i < len(sortedBig); i++ {
-		input[i+len(sortedSmall)+1] = sortedBig[i]
+	input[len(small)] = supEl
+	for i := 0; i < len(big); i++ {
+		input[i+len(small)+1] = big[i]
 	}
-	return input
+	return
 }

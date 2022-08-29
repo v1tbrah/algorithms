@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4dc38b-b514-440a-97e3-6b69875ca9b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/permutation/permutation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/permutation/permutation_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sort/bubbleSort.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sort/bubbleSort_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sort/qsort.go" beforeDir="false" afterPath="$PROJECT_DIR$/sort/quickSort.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sort/qsort_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/sort/quickSort_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,26 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/v1tbrah/go/src/metricsAndAlerting&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/home/v1tbrah/go/src/yandexPracticum/golang/sprint2/json",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bfs" />
@@ -68,7 +70,29 @@
       <recent name="$PROJECT_DIR$/sort" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test alghoritms/permutation">
+  <component name="RunManager" selected="Go Test.Test_bubbleSort in alghoritms/sort">
+    <configuration name="Test_Qsort in alghoritms/sort" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="alghoritms" />
+      <working_directory value="$PROJECT_DIR$/sort" />
+      <kind value="PACKAGE" />
+      <package value="alghoritms/sort" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_Qsort\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_bubbleSort in alghoritms/sort" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="alghoritms" />
+      <working_directory value="$PROJECT_DIR$/sort" />
+      <kind value="PACKAGE" />
+      <package value="alghoritms/sort" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_bubbleSort\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test_fillPermutations in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
       <working_directory value="$PROJECT_DIR$/permutation" />
@@ -80,44 +104,22 @@
       <pattern value="^\QTest_fillPermutations\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_fillPermutations/Test_1 in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_quickSort in alghoritms/sort" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/permutation" />
+      <working_directory value="$PROJECT_DIR$/sort" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/permutation" />
+      <package value="alghoritms/sort" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_fillPermutations\E$/^\QTest_1\E$" />
+      <pattern value="^\QTest_quickSort\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_permutation in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go test alghoritms/sort" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/permutation" />
+      <working_directory value="$PROJECT_DIR$/sort" />
       <kind value="PACKAGE" />
-      <package value="alghoritms/permutation" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest_permutation\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_permutation/Test_1 in alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/permutation" />
-      <kind value="PACKAGE" />
-      <package value="alghoritms/permutation" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest_permutation\E$/^\QTest_1\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go test alghoritms/permutation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="alghoritms" />
-      <working_directory value="$PROJECT_DIR$/permutation" />
-      <kind value="PACKAGE" />
-      <package value="alghoritms/permutation" />
+      <package value="alghoritms/sort" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -125,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.go test alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_bubbleSort in alghoritms/sort" />
+        <item itemvalue="Go Test.Test_quickSort in alghoritms/sort" />
+        <item itemvalue="Go Test.go test alghoritms/sort" />
         <item itemvalue="Go Test.Test_fillPermutations in alghoritms/permutation" />
-        <item itemvalue="Go Test.Test_fillPermutations/Test_1 in alghoritms/permutation" />
-        <item itemvalue="Go Test.Test_permutation in alghoritms/permutation" />
-        <item itemvalue="Go Test.Test_permutation/Test_1 in alghoritms/permutation" />
+        <item itemvalue="Go Test.Test_Qsort in alghoritms/sort" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +176,8 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="GoTestRunConfiguration">
-        <watch expression="string(s)" language="go" />
+        <watch expression="input[j + 1]" language="go" />
+        <watch expression="input[j]" language="go" />
       </configuration>
     </watches-manager>
   </component>
