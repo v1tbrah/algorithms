@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da4dc38b-b514-440a-97e3-6b69875ca9b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sort/bubbleSort.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sort/bubbleSort_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doubly-linked-list/design-linked-list/ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doubly-linked-list/design-linked-list/design-linked-list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sort/qsort.go" beforeDir="false" afterPath="$PROJECT_DIR$/sort/quickSort.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sort/qsort_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/sort/quickSort_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go Application" />
         <option value="Go File" />
+        <option value="Go Application" />
       </list>
     </option>
   </component>
@@ -42,7 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
+    "DefaultGoTemplateProperty": "Go Application",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -52,7 +50,7 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/home/v1tbrah/go/src/yandexPracticum/golang/sprint2/json",
+    "last_opened_file_path": "/home/v1tbrah/go/src/alghoritms/doubly-linked-list",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
