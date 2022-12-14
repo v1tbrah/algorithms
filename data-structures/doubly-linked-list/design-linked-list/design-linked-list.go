@@ -1,13 +1,13 @@
 package design_linked_list
 
 type Node struct {
-	Val  int
-	Prev *Node
-	Next *Node
+	val  int
+	prev *Node
+	next *Node
 }
 
 type MyLinkedList struct {
-	Head *Node
+	head *Node
 }
 
 func Constructor() MyLinkedList {
@@ -15,17 +15,17 @@ func Constructor() MyLinkedList {
 }
 
 func (l *MyLinkedList) Get(index int) int {
-	if l.Head == nil {
+	if l.head == nil {
 		return -1
 	}
 	if index < 0 {
 		return -1
 	}
 
-	temp := l.Head
+	temp := l.head
 	currIdx := 0
-	for temp.Next != nil && currIdx < index {
-		temp = temp.Next
+	for temp.next != nil && currIdx < index {
+		temp = temp.next
 		currIdx++
 	}
 
@@ -34,37 +34,37 @@ func (l *MyLinkedList) Get(index int) int {
 	}
 
 	if index == 0 {
-		return l.Head.Val
+		return l.head.val
 	}
 
-	return temp.Val
+	return temp.val
 }
 
 func (l *MyLinkedList) AddAtHead(val int) {
-	if l.Head == nil {
-		l.Head = &Node{Val: val}
+	if l.head == nil {
+		l.head = &Node{val: val}
 		return
 	}
 
-	l.Head.Prev = &Node{Val: val, Next: l.Head}
+	l.head.prev = &Node{val: val, next: l.head}
 
-	l.Head = l.Head.Prev
+	l.head = l.head.prev
 
 	return
 }
 
 func (l *MyLinkedList) AddAtTail(val int) {
-	if l.Head == nil {
-		l.Head = &Node{Val: val}
+	if l.head == nil {
+		l.head = &Node{val: val}
 		return
 	}
 
-	temp := l.Head
-	for temp.Next != nil {
-		temp = temp.Next
+	temp := l.head
+	for temp.next != nil {
+		temp = temp.next
 	}
 
-	temp.Next = &Node{Val: val, Prev: temp}
+	temp.next = &Node{val: val, prev: temp}
 
 	return
 }
@@ -73,82 +73,82 @@ func (l *MyLinkedList) AddAtIndex(index int, val int) {
 	if index < 0 {
 		return
 	}
-	if l.Head == nil {
+	if l.head == nil {
 		if index == 0 {
-			l.Head = &Node{Val: val}
+			l.head = &Node{val: val}
 		}
 		return
 	}
 
-	temp := l.Head
+	temp := l.head
 	currIdx := 0
-	for temp.Next != nil && currIdx < index {
-		temp = temp.Next
+	for temp.next != nil && currIdx < index {
+		temp = temp.next
 		currIdx++
 	}
 
 	if index == 0 {
-		l.Head.Prev = &Node{Val: val, Next: l.Head}
-		l.Head = l.Head.Prev
+		l.head.prev = &Node{val: val, next: l.head}
+		l.head = l.head.prev
 		return
 	}
 
-	idxNextAfterLast := currIdx
+	idxnextAfterLast := currIdx
 	nextAfterLast := temp
 	for nextAfterLast != nil {
-		nextAfterLast = nextAfterLast.Next
-		idxNextAfterLast++
+		nextAfterLast = nextAfterLast.next
+		idxnextAfterLast++
 	}
 
-	if idxNextAfterLast < index {
+	if idxnextAfterLast < index {
 		return
 	}
 
-	if index == idxNextAfterLast {
-		newNode := &Node{Val: val, Prev: temp}
-		temp.Next = newNode
+	if index == idxnextAfterLast {
+		newNode := &Node{val: val, prev: temp}
+		temp.next = newNode
 
 		return
 	}
 
-	prev := temp.Prev
+	prev := temp.prev
 	next := temp
 
-	newNode := &Node{Val: val, Prev: temp.Prev, Next: temp}
+	newNode := &Node{val: val, prev: temp.prev, next: temp}
 
-	prev.Next = newNode
-	next.Prev = newNode
+	prev.next = newNode
+	next.prev = newNode
 
 	return
 }
 
 func (l *MyLinkedList) DeleteAtIndex(index int) {
-	if l.Head == nil {
+	if l.head == nil {
 		return
 	}
 	if index < 0 {
 		return
 	}
 
-	temp := l.Head
+	temp := l.head
 	currIdx := 0
-	for temp.Next != nil && currIdx < index {
-		temp = temp.Next
+	for temp.next != nil && currIdx < index {
+		temp = temp.next
 		currIdx++
 	}
 
 	if index == 0 {
-		l.Head = l.Head.Next
-		if l.Head != nil {
-			l.Head.Prev = nil
+		l.head = l.head.next
+		if l.head != nil {
+			l.head.prev = nil
 		}
 		return
 	}
 
 	lastIndex := currIdx
 	last := temp
-	for last.Next != nil {
-		last = last.Next
+	for last.next != nil {
+		last = last.next
 		lastIndex++
 	}
 
@@ -157,15 +157,15 @@ func (l *MyLinkedList) DeleteAtIndex(index int) {
 	}
 
 	if currIdx == lastIndex {
-		temp.Prev.Next = nil
+		temp.prev.next = nil
 		return
 	}
 
-	prev := temp.Prev
-	next := temp.Next
+	prev := temp.prev
+	next := temp.next
 
-	prev.Next = next
-	next.Prev = prev
+	prev.next = next
+	next.prev = prev
 
 	return
 }
