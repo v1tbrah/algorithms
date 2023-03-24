@@ -3,9 +3,6 @@ package sqrtx
 import "testing"
 
 func Test_mySqrt(t *testing.T) {
-	type args struct {
-		x int
-	}
 	tests := []struct {
 		name   string
 		target int
