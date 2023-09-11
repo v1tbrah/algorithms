@@ -1,8 +1,9 @@
 package sort
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_bubbleSort(t *testing.T) {
@@ -50,9 +51,7 @@ func Test_bubbleSort(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			bubbleSort(tt.input)
-			if got := tt.input; !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("bubbleSort() = %v, want %v", got, tt.want)
-			}
+			assert.Equal(t, tt.want, tt.input)
 		})
 	}
 }

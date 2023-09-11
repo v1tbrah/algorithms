@@ -1,21 +1,16 @@
 package sort
 
+// Сортировка пузырьком
+// Time: O(n^2)
+// Space: O(1)
 func bubbleSort(input []int) {
-	lenInput := len(input)
-	if lenInput < 2 {
-		return
-	}
-	for i := 0; i < len(input)-1; i++ {
-		var flag bool
-		for j := 0; j < len(input)-1; j++ {
-			if input[j+1] < input[j] {
-				input[j+1], input[j] = input[j], input[j+1]
-				flag = true
+	for isSwapped := true; isSwapped; {
+		isSwapped = false
+		for i := 0; i < len(input)-1; i++ {
+			if input[i+1] < input[i] {
+				input[i], input[i+1] = input[i+1], input[i]
+				isSwapped = true
 			}
 		}
-		if !flag {
-			break
-		}
 	}
-	return
 }
