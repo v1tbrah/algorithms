@@ -1,4 +1,4 @@
-package _47_insertion_sort_list
+package insertion_sort_list
 
 // Task: https://leetcode.com/problems/insertion-sort-list/
 
