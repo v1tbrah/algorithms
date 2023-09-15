@@ -60,7 +60,7 @@ func (h *MinHeap) Add(el int) error {
 
 	// If the newly added element is smaller than its parent node,
 	// its value will be exchanged with that of the parent node
-	for h.arr[idx] < h.arr[parentIdx] && idx > 1 {
+	for idx >= 1 && h.arr[idx] < h.arr[parentIdx] {
 		tmp := h.arr[idx]
 		h.arr[idx] = h.arr[parentIdx]
 		h.arr[parentIdx] = tmp
