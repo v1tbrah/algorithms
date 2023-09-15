@@ -2,16 +2,16 @@
 Both Heaps are concurrent safety
 
 ## Methods
-* Add
+* Push
 * Pop (delete top)
 * GetSize
 * GetPeek (get top)
 * String (only for debug)
 
 ## MinHeap
-* Insert O(logN)
+* Push O(logN)
 * Pop (delete top) O(logN)
-* Get min O(1)
+* GetPeek O(1)
 
 Example
 ```
@@ -20,9 +20,9 @@ Example
 ```
 
 ## MaxHeap
-* Insert O(logN)
+* Push O(logN)
 * Pop (delete top) O(logN)
-* Get max O(1)
+* GetPeek O(1)
 
 ```
    3
@@ -30,8 +30,13 @@ Example
 ```
 
 ## Implementation
-The main idea:
-1. index of the parent node of any node is `index of the node / 2`
-2. index of the left child node is `index of the node * 2`
-3. index of the right child node is `index of the node * 2 + 1`
-4. node is a leaf node, when `idx > h.realSize/2`
+```
+vertex              ║ index                  ║
+╠═══════════════════╬════════════════════════╣
+║ root              ║ 0                      ║
+║ current           ║ i                      ║
+║ parent            ║ (i - 1) / 2            ║
+║ left child        ║ 2*i + 1                ║
+║ right child       ║ 2*i + 2                ║
+║ the last non-leaf ║ (array length - 2) / 2 ║
+```

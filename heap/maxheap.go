@@ -1,7 +1,6 @@
 package heap
 
 import (
-	"errors"
 	"fmt"
 	"strings"
 	"sync"
@@ -10,127 +9,122 @@ import (
 type MaxHeap[V Numeric] struct {
 	arr []V
 
-	size int
-
-	realSize int
-
 	rwmu *sync.RWMutex
 }
 
-func NewMaxHeap[V Numeric](size int) (*MaxHeap[V], error) {
-	if size <= 0 {
-		return nil, errors.New("size must be grater then 0")
+func NewMaxHeap[V Numeric](inputData []V) *MaxHeap[V] {
+	h := &MaxHeap[V]{
+		arr:  make([]V, 0, len(inputData)),
+		rwmu: &sync.RWMutex{},
 	}
 
-	return &MaxHeap[V]{
-		arr:      make([]V, size+1),
-		size:     size,
-		realSize: 0,
-		rwmu:     &sync.RWMutex{},
-	}, nil
+	for i := 0; i < len(inputData); i++ {
+		h.Push(inputData[i])
+	}
+
+	return h
 }
 
-func (h *MaxHeap[V]) Add(el V) error {
+// Push an element to Heap
+func (h *MaxHeap[V]) Push(el V) {
 	h.rwmu.Lock()
 	defer h.rwmu.Unlock()
 
-	if h.realSize+1 > h.size {
-		return errors.New("to many elements")
-	}
-	h.realSize++
+	h.arr = append(h.arr, el)
 
-	h.arr[h.realSize] = el
+	// index of the newly added element
+	idx := len(h.arr) - 1
+	// index of parent element
+	parentIdx := (idx - 1) / 2
 
-	idx := h.realSize
-	parentIdx := idx / 2
-
-	for parentIdx >= 1 && h.arr[idx] > h.arr[parentIdx] {
-		tmp := h.arr[idx]
-		h.arr[idx] = h.arr[parentIdx]
-		h.arr[parentIdx] = tmp
+	// swap node and parent until node > parent
+	for parentIdx >= 0 && h.arr[idx] > h.arr[parentIdx] {
+		h.arr[idx], h.arr[parentIdx] = h.arr[parentIdx], h.arr[idx]
 
 		idx = parentIdx
-		parentIdx = idx / 2
-	}
 
-	return nil
+		parentIdx = (idx - 1) / 2
+	}
 }
 
-func (h *MaxHeap[V]) Pop() error {
+// Pop removes the top element of the Heap
+func (h *MaxHeap[V]) Pop() {
 	h.rwmu.Lock()
 	defer h.rwmu.Unlock()
 
-	if h.realSize < 1 {
-		return errors.New("nothing elements")
+	if len(h.arr) == 0 {
+		return
 	}
 
-	h.arr[1] = h.arr[h.realSize]
-	h.realSize--
+	// insert last element to top
+	h.arr[0] = h.arr[len(h.arr)-1]
+	// remove last element
+	h.arr = h.arr[:len(h.arr)-1]
 
-	idx := 1
-	leftChildIdx := idx * 2
-	rightChildIdx := idx*2 + 1
+	idx := 0
 
-	for idx <= h.realSize/2 { // before idx is not leaf node idx
-		if h.arr[idx] < h.arr[leftChildIdx] {
-			tmp := h.arr[idx]
-			h.arr[idx] = h.arr[leftChildIdx]
-			h.arr[leftChildIdx] = tmp
+	// swap child and node until node < child
+	for idx < len(h.arr) {
+		leftChildIdx := idx*2 + 1
+		rightChildIdx := idx*2 + 2
 
-			idx = leftChildIdx
-			leftChildIdx = idx * 2
-			rightChildIdx = idx*2 + 1
-
-			continue
-		} else if h.arr[idx] < h.arr[rightChildIdx] {
-			tmp := h.arr[idx]
-			h.arr[idx] = h.arr[rightChildIdx]
-			h.arr[rightChildIdx] = tmp
-
-			idx = rightChildIdx
-			leftChildIdx = idx * 2
-			rightChildIdx = idx*2 + 1
-
-			continue
+		var isLeftChildMustSwap, isRightChildMustSwap bool
+		bigger := h.arr[idx]
+		if leftChildIdx < len(h.arr) && bigger < h.arr[leftChildIdx] {
+			bigger = h.arr[leftChildIdx]
+			isLeftChildMustSwap = true
+		}
+		if rightChildIdx < len(h.arr) && bigger < h.arr[rightChildIdx] {
+			bigger = h.arr[rightChildIdx]
+			isRightChildMustSwap = true
 		}
 
-		break
-	}
+		if isLeftChildMustSwap && !isRightChildMustSwap {
+			h.arr[idx], h.arr[leftChildIdx] = h.arr[leftChildIdx], h.arr[idx]
 
-	return nil
+			idx = leftChildIdx
+		} else if isRightChildMustSwap {
+			h.arr[idx], h.arr[rightChildIdx] = h.arr[rightChildIdx], h.arr[idx]
+
+			idx = rightChildIdx
+		}
+
+		if !isLeftChildMustSwap && !isRightChildMustSwap {
+			break
+		}
+	}
 }
 
+// GetSize returns size of the Heap
 func (h *MaxHeap[V]) GetSize() int {
 	h.rwmu.RLock()
 	defer h.rwmu.RUnlock()
 
-	return h.realSize
+	return len(h.arr)
 }
 
-func (h *MaxHeap[V]) GetPeek() (V, error) {
+// GetPeek returns the top element of the Heap
+func (h *MaxHeap[V]) GetPeek() V {
 	h.rwmu.RLock()
 	defer h.rwmu.RUnlock()
 
-	if h.realSize < 1 {
-		return 0, errors.New("nothing elements")
+	if len(h.arr) == 0 {
+		var res V
+		return res
 	}
 
-	return h.arr[1], nil
+	return h.arr[0]
 }
 
 func (h *MaxHeap[V]) String() string {
 	h.rwmu.RLock()
 	defer h.rwmu.RUnlock()
 
-	if h.realSize < 1 {
-		return "nothing elements"
-	}
-
 	var b strings.Builder
 	b.WriteString("[")
-	for i := 1; i <= h.realSize; i++ {
+	for i := 0; i <= len(h.arr); i++ {
 		b.WriteString(fmt.Sprintf("%v", h.arr[i]))
-		if i < h.realSize {
+		if i < len(h.arr)-1 {
 			b.WriteString(",")
 		}
 	}

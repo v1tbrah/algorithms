@@ -4,56 +4,34 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 func TestMinHeap(t *testing.T) {
-	mh, err := NewMinHeap[int](3)
-	assert.NoError(t, err)
+	mh := NewMinHeap[int]([]int{3, 2, 1})
+	assert.Equal(t, 1, mh.GetPeek())
+	assert.Equal(t, 3, mh.GetSize())
 
-	assert.NoError(t, mh.Add(3))
-	// 1. Add(3)
+	mh.Push(-1)
+	assert.Equal(t, -1, mh.GetPeek())
+	assert.Equal(t, 4, mh.GetSize())
 
-	// arr:
-	// [3]
+	mh.Push(-2)
+	assert.Equal(t, -2, mh.GetPeek())
+	assert.Equal(t, 5, mh.GetSize())
 
-	// tree:
-	//		3
+	mh.Push(-3)
+	assert.Equal(t, -3, mh.GetPeek())
+	assert.Equal(t, 6, mh.GetSize())
 
-	assert.NoError(t, mh.Add(2))
-	// 2. Add(2)
+	mh.Push(4)
+	assert.Equal(t, -3, mh.GetPeek())
+	assert.Equal(t, 7, mh.GetSize())
 
-	// arr:
-	// [2,3]
+	mh.Pop()
+	assert.Equal(t, -2, mh.GetPeek())
+	assert.Equal(t, 6, mh.GetSize())
 
-	// tree:
-	//		2
-	//	3
-
-	assert.NoError(t, mh.Add(1))
-	// 3. Add(1)
-
-	// arr:
-	// [1,3,2]
-
-	// tree:
-	//		1
-	//	3		2
-
-	require.Error(t, mh.Add(4))
-
-	assert.NoError(t, mh.Pop())
-	currPeak, err := mh.GetPeek()
-	assert.NoError(t, err)
-	assert.Equal(t, 2, currPeak)
-
-	assert.NoError(t, mh.Pop())
-	currPeak, err = mh.GetPeek()
-	assert.NoError(t, err)
-	assert.Equal(t, 3, currPeak)
-
-	assert.NoError(t, mh.Pop())
-	require.Error(t, mh.Pop())
-	currPeak, err = mh.GetPeek()
-	require.Error(t, err)
+	mh.Pop()
+	assert.Equal(t, -1, mh.GetPeek())
+	assert.Equal(t, 5, mh.GetSize())
 }
