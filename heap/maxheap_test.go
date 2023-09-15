@@ -8,7 +8,7 @@ import (
 )
 
 func TestMaxHeap(t *testing.T) {
-	mh, err := NewMaxHeap(3)
+	mh, err := NewMaxHeap[int](3)
 	assert.NoError(t, err)
 
 	assert.NoError(t, mh.Add(1))

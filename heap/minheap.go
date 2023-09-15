@@ -2,8 +2,9 @@ package heap
 
 import (
 	"errors"
-	"strconv"
+	"fmt"
 	"strings"
+	"sync"
 )
 
 // The main idea:
@@ -12,10 +13,10 @@ import (
 // 3. index of the right child node is [index of the node * 2 + 1]
 // 4. node is a leaf node, when idx > h.realSize/2
 
-type MinHeap struct {
+type MinHeap[V Numeric] struct {
 	// Create a complete binary tree using an array
 	// Then use the binary tree to construct a Heap
-	arr []int
+	arr []V
 
 	// the number of elements is needed when instantiating an array
 	// heapSize records the size of the array
@@ -23,22 +24,28 @@ type MinHeap struct {
 
 	// realSize records the number of elements in the Heap
 	realSize int
+
+	rwmu *sync.RWMutex
 }
 
-func NewMinHeap(size int) (*MinHeap, error) {
+func NewMinHeap[V Numeric](size int) (*MinHeap[V], error) {
 	if size <= 0 {
 		return nil, errors.New("size must be grater then 0")
 	}
 
-	return &MinHeap{
-		arr:      make([]int, size+1),
+	return &MinHeap[V]{
+		arr:      make([]V, size+1),
 		heapSize: size,
 		realSize: 0,
+		rwmu:     &sync.RWMutex{},
 	}, nil
 }
 
 // Add an element to Heap
-func (h *MinHeap) Add(el int) error {
+func (h *MinHeap[V]) Add(el V) error {
+	h.rwmu.Lock()
+	defer h.rwmu.Unlock()
+
 	if h.realSize+1 > h.heapSize {
 		return errors.New("added to many elements")
 	}
@@ -74,16 +81,11 @@ func (h *MinHeap) Add(el int) error {
 	return nil
 }
 
-// GetPeek returns the top element of the Heap
-func (h *MinHeap) GetPeek() (int, error) {
-	if h.realSize < 1 {
-		return 0, errors.New("nothing elements")
-	}
-	return h.arr[1], nil
-}
-
 // Pop removes the top element of the Heap
-func (h *MinHeap) Pop() error {
+func (h *MinHeap[V]) Pop() error {
+	h.rwmu.Lock()
+	defer h.rwmu.Unlock()
+
 	if h.realSize < 1 {
 		return errors.New("nothing elements")
 	}
@@ -134,11 +136,28 @@ func (h *MinHeap) Pop() error {
 }
 
 // GetSize returns size of the Heap
-func (h *MinHeap) GetSize() int {
+func (h *MinHeap[V]) GetSize() int {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
 	return h.realSize
 }
 
-func (h *MinHeap) String() string {
+// GetPeek returns the top element of the Heap
+func (h *MinHeap[V]) GetPeek() (V, error) {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
+	if h.realSize < 1 {
+		return 0, errors.New("nothing elements")
+	}
+	return h.arr[1], nil
+}
+
+func (h *MinHeap[V]) String() string {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
 	if h.realSize < 1 {
 		return "nothing elements"
 	}
@@ -146,7 +165,7 @@ func (h *MinHeap) String() string {
 	var b strings.Builder
 	b.WriteString("[")
 	for i := 1; i <= h.realSize; i++ {
-		b.WriteString(strconv.Itoa(h.arr[i]))
+		b.WriteString(fmt.Sprintf("%v", h.arr[i]))
 		if i < h.realSize {
 			b.WriteString(",")
 		}

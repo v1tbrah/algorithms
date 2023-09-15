@@ -2,37 +2,38 @@ package heap
 
 import (
 	"errors"
-	"strconv"
+	"fmt"
 	"strings"
+	"sync"
 )
 
-// The main idea:
-// 1. index of the parent node of any node is [index of the node / 2]
-// 2. index of the left child node is [index of the node * 2]
-// 3. index of the right child node is [index of the node * 2 + 1]
-// 4. node is a leaf node, when idx > h.realSize/2
-
-type MaxHeap struct {
-	arr []int
+type MaxHeap[V Numeric] struct {
+	arr []V
 
 	size int
 
 	realSize int
+
+	rwmu *sync.RWMutex
 }
 
-func NewMaxHeap(size int) (*MaxHeap, error) {
+func NewMaxHeap[V Numeric](size int) (*MaxHeap[V], error) {
 	if size <= 0 {
 		return nil, errors.New("size must be grater then 0")
 	}
 
-	return &MaxHeap{
-		arr:      make([]int, size+1),
+	return &MaxHeap[V]{
+		arr:      make([]V, size+1),
 		size:     size,
 		realSize: 0,
+		rwmu:     &sync.RWMutex{},
 	}, nil
 }
 
-func (h *MaxHeap) Add(el int) error {
+func (h *MaxHeap[V]) Add(el V) error {
+	h.rwmu.Lock()
+	defer h.rwmu.Unlock()
+
 	if h.realSize+1 > h.size {
 		return errors.New("to many elements")
 	}
@@ -55,7 +56,10 @@ func (h *MaxHeap) Add(el int) error {
 	return nil
 }
 
-func (h *MaxHeap) Pop() error {
+func (h *MaxHeap[V]) Pop() error {
+	h.rwmu.Lock()
+	defer h.rwmu.Unlock()
+
 	if h.realSize < 1 {
 		return errors.New("nothing elements")
 	}
@@ -96,11 +100,17 @@ func (h *MaxHeap) Pop() error {
 	return nil
 }
 
-func (h *MaxHeap) Size() int {
+func (h *MaxHeap[V]) GetSize() int {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
 	return h.realSize
 }
 
-func (h *MaxHeap) GetPeek() (int, error) {
+func (h *MaxHeap[V]) GetPeek() (V, error) {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
 	if h.realSize < 1 {
 		return 0, errors.New("nothing elements")
 	}
@@ -108,7 +118,10 @@ func (h *MaxHeap) GetPeek() (int, error) {
 	return h.arr[1], nil
 }
 
-func (h *MaxHeap) String() string {
+func (h *MaxHeap[V]) String() string {
+	h.rwmu.RLock()
+	defer h.rwmu.RUnlock()
+
 	if h.realSize < 1 {
 		return "nothing elements"
 	}
@@ -116,7 +129,7 @@ func (h *MaxHeap) String() string {
 	var b strings.Builder
 	b.WriteString("[")
 	for i := 1; i <= h.realSize; i++ {
-		b.WriteString(strconv.Itoa(h.arr[i]))
+		b.WriteString(fmt.Sprintf("%v", h.arr[i]))
 		if i < h.realSize {
 			b.WriteString(",")
 		}

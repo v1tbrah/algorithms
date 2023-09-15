@@ -8,7 +8,7 @@ import (
 )
 
 func TestMinHeap(t *testing.T) {
-	mh, err := NewMinHeap(3)
+	mh, err := NewMinHeap[int](3)
 	assert.NoError(t, err)
 
 	assert.NoError(t, mh.Add(3))
