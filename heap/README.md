@@ -38,5 +38,5 @@ vertex              ║ index                  ║
 ║ parent            ║ (i - 1) / 2            ║
 ║ left child        ║ 2*i + 1                ║
 ║ right child       ║ 2*i + 2                ║
-║ the last non-leaf ║ (array length - 2) / 2 ║
+║ the last non-leaf ║ (array length / 2) - 1 ║
 ```

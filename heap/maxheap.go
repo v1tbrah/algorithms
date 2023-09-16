@@ -14,15 +14,38 @@ type MaxHeap[V Numeric] struct {
 
 func NewMaxHeap[V Numeric](inputData []V) *MaxHeap[V] {
 	h := &MaxHeap[V]{
-		arr:  make([]V, 0, len(inputData)),
+		arr:  make([]V, len(inputData)),
 		rwmu: &sync.RWMutex{},
 	}
 
-	for i := 0; i < len(inputData); i++ {
-		h.Push(inputData[i])
+	copy(h.arr, inputData)
+
+	lastNonLeafNodeIdx := (len(h.arr) / 2) - 1
+
+	for idx := lastNonLeafNodeIdx; idx >= 0; idx-- {
+		h.heapify(idx)
 	}
 
 	return h
+}
+
+func (h *MaxHeap[V]) heapify(idx int) {
+	largestValueIdx := idx
+	leftChildNode := 2*idx + 1
+	rightChildNode := 2*idx + 2
+
+	if leftChildNode < len(h.arr) && h.arr[leftChildNode] > h.arr[largestValueIdx] {
+		largestValueIdx = leftChildNode
+	}
+
+	if rightChildNode < len(h.arr) && h.arr[rightChildNode] > h.arr[largestValueIdx] {
+		largestValueIdx = rightChildNode
+	}
+
+	if largestValueIdx != idx {
+		h.arr[idx], h.arr[largestValueIdx] = h.arr[largestValueIdx], h.arr[idx]
+		h.heapify(largestValueIdx)
+	}
 }
 
 // Push an element to Heap
@@ -65,31 +88,20 @@ func (h *MaxHeap[V]) Pop() {
 
 	// swap child and node until node < child
 	for idx < len(h.arr) {
+		biggestValueIdx := idx
 		leftChildIdx := idx*2 + 1
 		rightChildIdx := idx*2 + 2
 
-		var isLeftChildMustSwap, isRightChildMustSwap bool
-		bigger := h.arr[idx]
-		if leftChildIdx < len(h.arr) && bigger < h.arr[leftChildIdx] {
-			bigger = h.arr[leftChildIdx]
-			isLeftChildMustSwap = true
+		if leftChildIdx < len(h.arr) && h.arr[biggestValueIdx] < h.arr[leftChildIdx] {
+			biggestValueIdx = leftChildIdx
 		}
-		if rightChildIdx < len(h.arr) && bigger < h.arr[rightChildIdx] {
-			bigger = h.arr[rightChildIdx]
-			isRightChildMustSwap = true
+		if rightChildIdx < len(h.arr) && h.arr[biggestValueIdx] < h.arr[rightChildIdx] {
+			biggestValueIdx = rightChildIdx
 		}
 
-		if isLeftChildMustSwap && !isRightChildMustSwap {
-			h.arr[idx], h.arr[leftChildIdx] = h.arr[leftChildIdx], h.arr[idx]
-
-			idx = leftChildIdx
-		} else if isRightChildMustSwap {
-			h.arr[idx], h.arr[rightChildIdx] = h.arr[rightChildIdx], h.arr[idx]
-
-			idx = rightChildIdx
-		}
-
-		if !isLeftChildMustSwap && !isRightChildMustSwap {
+		if idx != biggestValueIdx {
+			h.arr[idx], h.arr[biggestValueIdx] = h.arr[biggestValueIdx], h.arr[idx]
+		} else {
 			break
 		}
 	}

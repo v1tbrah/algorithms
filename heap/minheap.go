@@ -22,15 +22,37 @@ type MinHeap[V Numeric] struct {
 
 func NewMinHeap[V Numeric](initData []V) *MinHeap[V] {
 	h := &MinHeap[V]{
-		arr:  make([]V, 0, len(initData)),
+		arr:  make([]V, len(initData)),
 		rwmu: &sync.RWMutex{},
 	}
 
-	for i := 0; i < len(initData); i++ {
-		h.Push(initData[i])
+	copy(h.arr, initData)
+
+	lastNonLeafIdx := len(h.arr)/2 - 1
+
+	for idx := lastNonLeafIdx; idx >= 0; idx-- {
+		h.heapify(idx)
 	}
 
 	return h
+}
+
+func (h *MinHeap[V]) heapify(idx int) {
+	smallestValueIdx := idx
+	leftChildNodeIdx := idx*2 + 1
+	rightChildNodeIdx := idx*2 + 2
+
+	if leftChildNodeIdx < len(h.arr) && h.arr[smallestValueIdx] > h.arr[leftChildNodeIdx] {
+		smallestValueIdx = leftChildNodeIdx
+	}
+	if rightChildNodeIdx < len(h.arr) && h.arr[smallestValueIdx] > h.arr[rightChildNodeIdx] {
+		smallestValueIdx = rightChildNodeIdx
+	}
+
+	if idx != smallestValueIdx {
+		h.arr[idx], h.arr[smallestValueIdx] = h.arr[smallestValueIdx], h.arr[idx]
+		h.heapify(smallestValueIdx)
+	}
 }
 
 // Push an element to Heap
@@ -74,32 +96,20 @@ func (h *MinHeap[V]) Pop() {
 
 	// swap child and node until node > child
 	for idx <= len(h.arr)-1 {
-		smaller := h.arr[idx]
-
+		smallestValueIdx := idx
 		leftChildIdx := idx*2 + 1
 		rightChildIdx := idx*2 + 2
 
-		var isLeftMustSwapped, isRightMustSwapped bool
-		if leftChildIdx <= len(h.arr)-1 && smaller > h.arr[leftChildIdx] {
-			smaller = h.arr[leftChildIdx]
-			isLeftMustSwapped = true
+		if leftChildIdx <= len(h.arr)-1 && h.arr[smallestValueIdx] > h.arr[leftChildIdx] {
+			smallestValueIdx = leftChildIdx
 		}
-		if rightChildIdx <= len(h.arr)-1 && smaller > h.arr[rightChildIdx] {
-			smaller = h.arr[rightChildIdx]
-			isRightMustSwapped = true
+		if rightChildIdx <= len(h.arr)-1 && h.arr[smallestValueIdx] > h.arr[rightChildIdx] {
+			smallestValueIdx = rightChildIdx
 		}
 
-		if isLeftMustSwapped && !isRightMustSwapped {
-			h.arr[idx], h.arr[leftChildIdx] = h.arr[leftChildIdx], h.arr[idx]
-
-			idx = leftChildIdx
-		} else if isRightMustSwapped {
-			h.arr[idx], h.arr[rightChildIdx] = h.arr[rightChildIdx], h.arr[idx]
-
-			idx = rightChildIdx
-		}
-
-		if !isLeftMustSwapped && !isRightMustSwapped {
+		if idx != smallestValueIdx {
+			h.arr[idx], h.arr[smallestValueIdx] = h.arr[smallestValueIdx], h.arr[idx]
+		} else {
 			break
 		}
 	}
