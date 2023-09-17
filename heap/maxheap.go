@@ -20,7 +20,7 @@ func NewMaxHeap[V Numeric](inputData []V) *MaxHeap[V] {
 
 	copy(h.arr, inputData)
 
-	lastNonLeafNodeIdx := (len(h.arr) / 2) - 1
+	lastNonLeafNodeIdx := len(h.arr)/2 - 1
 
 	for idx := lastNonLeafNodeIdx; idx >= 0; idx-- {
 		h.heapify(idx)
