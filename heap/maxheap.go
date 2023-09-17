@@ -134,7 +134,7 @@ func (h *MaxHeap[V]) String() string {
 
 	var b strings.Builder
 	b.WriteString("[")
-	for i := 0; i <= len(h.arr); i++ {
+	for i := 0; i < len(h.arr); i++ {
 		b.WriteString(fmt.Sprintf("%v", h.arr[i]))
 		if i < len(h.arr)-1 {
 			b.WriteString(",")
