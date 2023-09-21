@@ -8,6 +8,8 @@ package minheap
 // #Array
 // #Sorting
 // #Matrix
+// #Heap (Priority Queue)
+// #Binary Search
 
 // Idea:
 // 1. Make new matrix, where matrix[i] - pair[count, idx]
