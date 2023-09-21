@@ -1,8 +1,10 @@
 package linear_search_and_map
 
+import "sort"
+
 // Task: https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
 
-// Solution: https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/submissions/1055578049/
+// Solution: https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/submissions/1055747546/
 
 // tags:
 // #Array
@@ -10,9 +12,10 @@ package linear_search_and_map
 // #Matrix
 
 // Idea:
-// 1. Make new matrix, when each row is array[2], where array[0] - count soldiers, array[1] - row idx
-// 2. Sort new matrix
-// 3. Get idxs from first K in new matrix
+// 1. Make map[count][]idxs
+// 2. Make []counts
+// 3. Sort counts
+// 4. Get first k idxs from map
 
 // Time: O(m*(n+logm))
 // Space: O(m)
@@ -30,15 +33,9 @@ func kWeakestRows(mat [][]int, k int) []int {
 		newMat[i] = [2]int{soldiers, i}
 	}
 
-	for i := 1; i < len(newMat); i++ {
-		for j := i; j > 0; j-- {
-			if less(newMat[j], newMat[j-1]) {
-				newMat[j], newMat[j-1] = newMat[j-1], newMat[j]
-			} else {
-				break
-			}
-		}
-	}
+	sort.Slice(newMat, func(i, j int) bool {
+		return less(newMat[i], newMat[j])
+	})
 
 	result := make([]int, 0, k)
 	for i := 0; i < k; i++ {
