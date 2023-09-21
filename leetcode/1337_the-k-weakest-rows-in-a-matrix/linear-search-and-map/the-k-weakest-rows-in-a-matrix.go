@@ -1,4 +1,4 @@
-package the_k_weakest_rows_in_a_matrix
+package linear_search_and_map
 
 // Task: https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
 
