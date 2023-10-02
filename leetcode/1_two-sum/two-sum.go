@@ -8,6 +8,8 @@ package two_sum
 // #Array
 // #Hash Table
 
+// Time: O(n)
+// Space: O(n)
 func twoSum(nums []int, target int) []int {
 	numsMap := make(map[int]int)
 	for i, num := range nums {
