@@ -4,7 +4,7 @@ import "math/rand"
 
 // Task: https://leetcode.com/problems/insert-delete-getrandom-o1/
 
-// Solution: https://leetcode.com/problems/insert-delete-getrandom-o1/submissions/1043246844/
+// Solution: https://leetcode.com/problems/insert-delete-getrandom-o1/submissions/1067096020/
 
 // tags:
 // #Array
@@ -14,14 +14,14 @@ import "math/rand"
 // #Randomized
 
 type RandomizedSet struct {
-	data     []int
+	arr      []int
 	valToIdx map[int]int
 }
 
 func Constructor() RandomizedSet {
 	return RandomizedSet{
-		data:     make([]int, 0),
-		valToIdx: make(map[int]int),
+		arr:      make([]int, 0),
+		valToIdx: make(map[int]int, 0),
 	}
 }
 
@@ -30,8 +30,9 @@ func (this *RandomizedSet) Insert(val int) bool {
 		return false
 	}
 
-	this.data = append(this.data, val)
-	this.valToIdx[val] = len(this.data) - 1
+	this.arr = append(this.arr, val)
+	this.valToIdx[val] = len(this.arr) - 1
+
 	return true
 }
 
@@ -41,20 +42,20 @@ func (this *RandomizedSet) Remove(val int) bool {
 		return false
 	}
 
-	// swap last and this
-	this.data[idx], this.data[len(this.data)-1] = this.data[len(this.data)-1], this.data[idx]
-	// update idx for last
-	this.valToIdx[this.data[idx]] = idx
-	// cut last element
-	this.data = this.data[:len(this.data)-1]
-
+	// swap with last
+	this.arr[idx] = this.arr[len(this.arr)-1]
+	// save new idx for swapped element
+	this.valToIdx[this.arr[idx]] = idx
+	// cut last
+	this.arr = this.arr[:len(this.arr)-1]
+	// delete last val:idx from map
 	delete(this.valToIdx, val)
 
 	return true
 }
 
 func (this *RandomizedSet) GetRandom() int {
-	return this.data[rand.Intn(len(this.data))]
+	return this.arr[rand.Intn(len(this.arr))]
 }
 
 /**
