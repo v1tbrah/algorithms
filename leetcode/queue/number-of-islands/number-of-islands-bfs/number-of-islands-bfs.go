@@ -1,4 +1,4 @@
-package number_of_islands_dfs
+package number_of_islands_bfs
 
 func numIslands(grid [][]byte) int {
 	var result int
