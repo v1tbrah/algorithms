@@ -1,6 +1,6 @@
 package valid_parentheses
 
-// Task: https://leetcode.com/problems/valid-parentheses/description/
+// Task: https://leetcode.com/problems/valid-parentheses/
 
 // Solution: https://leetcode.com/problems/valid-parentheses/submissions/1067788912/
 
