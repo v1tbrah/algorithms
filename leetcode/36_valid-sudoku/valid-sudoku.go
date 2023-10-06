@@ -9,52 +9,58 @@ package valid_sudoku
 // #Hash Table
 // #Matrix
 
+// Time: O(m*n)
+// Space: O(m*n)
 func isValidSudoku(board [][]byte) bool {
 	for i := 0; i < len(board); i++ {
-		currCheckMap := make(map[byte]struct{}, 9)
-		for j := 0; j < len(board[i]); j++ {
-			if _, ok := currCheckMap[board[i][j]]; ok {
-				return false
-			} else if board[i][j] != '.' { // not point
-				currCheckMap[board[i][j]] = struct{}{}
+		row := make(map[byte]struct{})
+		for j := 0; j < len(board); j++ {
+			if board[i][j] != '.' {
+				if _, ok := row[board[i][j]]; !ok {
+					row[board[i][j]] = struct{}{}
+				} else {
+					return false
+				}
 			}
 		}
 	}
 
 	for i := 0; i < len(board); i++ {
-		currCheckMap := make(map[byte]struct{}, 9)
-		for j := 0; j < len(board[i]); j++ {
-			if _, ok := currCheckMap[board[j][i]]; ok {
-				return false
-			} else if board[j][i] != '.' { // not point
-				currCheckMap[board[j][i]] = struct{}{}
+		col := make(map[byte]struct{})
+		for j := 0; j < len(board); j++ {
+			if board[j][i] != '.' {
+				if _, ok := col[board[j][i]]; !ok {
+					col[board[j][i]] = struct{}{}
+				} else {
+					return false
+				}
 			}
 		}
 	}
 
-	vShift, hShift := 0, 0
-
-	for {
-		currCheckMap := make(map[byte]struct{}, 9)
-		for i := 0; i < 3; i++ {
-			for j := 0; j < 3; j++ {
-				if _, ok := currCheckMap[board[i+vShift][j+hShift]]; ok {
-					return false
-				} else if board[i+vShift][j+hShift] != '.' { // not point
-					currCheckMap[board[i+vShift][j+hShift]] = struct{}{}
+	r, c := 0, 0
+	for r != 9 {
+		unique := make(map[byte]struct{})
+		for i := r; i < 3+r; i++ {
+			for j := c; j < 3+c; j++ {
+				if board[i][j] != '.' {
+					if _, ok := unique[board[i][j]]; !ok {
+						unique[board[i][j]] = struct{}{}
+					} else {
+						return false
+					}
 				}
 			}
 		}
 
-		if vShift == 6 && hShift == 6 {
-			break
+		if c == 0 || c == 3 {
+			c += 3
+			continue
 		}
-
-		if hShift == 0 || hShift == 3 {
-			hShift += 3
-		} else {
-			vShift += 3
-			hShift = 0
+		if c == 6 {
+			r += 3
+			c = 0
+			continue
 		}
 	}
 
