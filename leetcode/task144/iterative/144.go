@@ -2,14 +2,14 @@ package task144
 
 // Task: https://leetcode.com/problems/binary-tree-preorder-traversal/
 
-// Solution: https://leetcode.com/problems/binary-tree-preorder-traversal/submissions/1074906175/
+// Solution: https://leetcode.com/problems/binary-tree-preorder-traversal/submissions/1074910668/
 
 // tags:
 // #Binary Tree
 // #Stack
 // #Tree
 
-// Idea: firstly we add root value to result, secondly go to left node, finally go to right value
+// Desc: Binary tree preorder traversal - is than we add 1) root, 2) left, 3) right
 
 type TreeNode struct {
 	Val   int
@@ -18,25 +18,29 @@ type TreeNode struct {
 }
 
 // Time: O(N), where N - is count of nodes
-// Space: O(N), cause we need place to save recursion stack
+// Space: O(N), cause we need place to save stack
 func preorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil
 	}
 
-	result := []int{root.Val}
-	dfs(root.Left, &result)
-	dfs(root.Right, &result)
+	result := make([]int, 0)
+	stack := make([]*TreeNode, 0)
+	stack = append(stack, root)
 
-	return result
-}
+	for len(stack) != 0 {
+		top := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
 
-func dfs(node *TreeNode, toSave *[]int) {
-	if node == nil {
-		return
+		result = append(result, top.Val)
+
+		if top.Right != nil {
+			stack = append(stack, top.Right)
+		}
+		if top.Left != nil {
+			stack = append(stack, top.Left)
+		}
 	}
 
-	*toSave = append(*toSave, node.Val)
-	dfs(node.Left, toSave)
-	dfs(node.Right, toSave)
+	return result
 }
