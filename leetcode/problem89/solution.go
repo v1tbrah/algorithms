@@ -7,7 +7,7 @@ package problem89
 // tags:
 // #Bit Manipulation
 
-// Time: O(2^n)
+// Time: O(2^N)
 // Space: O(1)
 func grayCode(n int) []int {
 	count := 1 << n
