@@ -1,4 +1,4 @@
-package valid_sudoku
+package problem36
 
 // Task: https://leetcode.com/problems/valid-sudoku/
 
