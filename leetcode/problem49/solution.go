@@ -1,4 +1,4 @@
-package group_anagrams
+package problem49
 
 import "sort"
 
@@ -12,6 +12,8 @@ import "sort"
 // #String
 // #Sorting
 
+// Time: O(C*N*LogN), where C is count of strings, N is max length string
+// Space: O(C*N)
 func groupAnagrams(strs []string) [][]string {
 	mapAnagrams := make(map[string][]string)
 	for _, str := range strs {

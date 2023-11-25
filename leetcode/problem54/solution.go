@@ -1,4 +1,4 @@
-package spiral_matrix
+package problem54
 
 // Task: https://leetcode.com/problems/spiral-matrix/
 
@@ -8,7 +8,7 @@ package spiral_matrix
 // #Array
 // #Matrix
 
-// Time: O(m*n)
+// Time: O(M*N)
 // Space: O(1)
 func spiralOrder(matrix [][]int) []int {
 	lenR := len(matrix)
