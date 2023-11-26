@@ -1,4 +1,4 @@
-package set_matrix_zeroes
+package problem73
 
 // Task: https://leetcode.com/problems/set-matrix-zeroes/
 
